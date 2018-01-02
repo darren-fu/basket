@@ -5,8 +5,8 @@ Add explanation to Agent FAQ when following log message is seen:
 
 ERROR: DNS Checking loopback IP address 127.0.0.0/8, localhost or ::1 configured as the DNS server on the host file /etc/resolv.conf, can't accept it
 
-https://docs.docker.com/engine/installation/linux/linux-postinstall/#dns-resolver-found-in-resolvconf-and-containers-cant-use-it
 ```
+[https://docs.docker.com/engine/installation/linux/linux-postinstall/#dns-resolver-found-in-resolvconf-and-containers-cant-use-it](https://docs.docker.com/engine/installation/linux/linux-postinstall/#dns-resolver-found-in-resolvconf-and-containers-cant-use-it)
 #### Specify DNS servers for Docker
 
 1. Create or edit the Docker daemon configuration file, which defaults to /etc/docker/daemon.json file, which controls the Docker daemon configuration.
