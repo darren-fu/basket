@@ -3,7 +3,7 @@
 JPS
 - 获取最耗CPU的线程
   * ps -Lfp pid
-  * ps -mp pid -o THREAD, tid, time
+  * ps -mp pid -o THREAD,tid,time
   * top -Hp pid
 - 获取线程ID的16进制
   ```shell
