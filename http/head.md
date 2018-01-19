@@ -48,29 +48,33 @@ Keep-Alive：如果浏览器请求保持连接，则该头部表明希望 WEB �
 31.  Via： 列出从客户端到 OCS 或者相反方向的响应经过了哪些代理服务器，他们用什么协议（和版本）发送的请求。当客户端请求到达第一个代理服务器时，该服务器会在自己发出的请求里面添加 Via 头部，并填上自己的相关信息，当下一个代理服务器收到第一个代理服务器的请求时，会在自己发出的请求里面复制前一个代理服务器的请求的Via 头部，并把自己的相关信息加到后面，以此类推，当 OCS 收到最后一个代理服务器的请求时，检查 Via 头部，就知道该请求所经过的路由。例如：Via：1.0 236.D0707195.sina.com.cn:80 (squid/2.6.STABLE13)
 
 ## HTTP 请求消息头部实例：
-Host：rss.sina.com.cn
-User-Agent：Mozilla/5、0 (Windows; U; Windows NT 5、1; zh-CN; rv:1、8、1、14) Gecko/20080404 Firefox/2、0、0、14
-Accept：text/xml,application/xml,application/xhtml+xml,text/html;q=0、9,text/plain;q=0、8,image/png,*/*;q=0、5
-Accept-Language：zh-cn,zh;q=0、5
-Accept-Encoding：gzip,deflate
-Accept-Charset：gb2312,utf-8;q=0、7,*;q=0、7
-Keep-Alive：300
-Connection：keep-alive
-Cookie：userId=C5bYpXrimdmsiQmsBPnE1Vn8ZQmdWSm3WRlEB3vRwTnRtW &lt;-- Cookie
-If-Modified-Since：Sun, 01 Jun 2008 12:05:30 GMT
-Cache-Control：max-age=0
+```
+Host：rss.sina.com.cn 
+User-Agent：Mozilla/5、0 (Windows; U; Windows NT 5、1; zh-CN; rv:1、8、1、14) Gecko/20080404 Firefox/2、0、0、14 
+Accept：text/xml,application/xml,application/xhtml+xml,text/html;q=0、9,text/plain;q=0、8,image/png,*/*;q=0、5 
+Accept-Language：zh-cn,zh;q=0、5 
+Accept-Encoding：gzip,deflate 
+Accept-Charset：gb2312,utf-8;q=0、7,*;q=0、7 
+Keep-Alive：300 
+Connection：keep-alive 
+Cookie：userId=C5bYpXrimdmsiQmsBPnE1Vn8ZQmdWSm3WRlEB3vRwTnRtW &lt;-- Cookie 
+If-Modified-Since：Sun, 01 Jun 2008 12:05:30 GMT 
+Cache-Control：max-age=0 
+```
 
-## HTTP 响应消息头部实例：
-Status：OK - 200 &lt;-- 响应状态码，表示 web 服务器处理的结果。
-Date：Sun, 01 Jun 2008 12:35:47 GMT
-Server：Apache/2、0、61 (Unix)
-Last-Modified：Sun, 01 Jun 2008 12:35:30 GMT
-Accept-Ranges：bytes
-Content-Length：18616
-Cache-Control：max-age=120
-Expires：Sun, 01 Jun 2008 12:37:47 GMT
-Content-Type：application/xml
-Age：2
-X-Cache：HIT from 236-41、D07071951、sina、com、cn &lt;-- 反向代理服务器使用的 HTTP 头部
-Via：1.0 236-41.D07071951.sina.com.cn:80 (squid/2.6.STABLE13)
-Connection：close
+## HTTP 响应消息头部实例： 
+```
+Status：OK - 200 &lt;-- 响应状态码，表示 web 服务器处理的结果。 
+Date：Sun, 01 Jun 2008 12:35:47 GMT 
+Server：Apache/2、0、61 (Unix) 
+Last-Modified：Sun, 01 Jun 2008 12:35:30 GMT  
+Accept-Ranges：bytes 
+Content-Length：18616 
+Cache-Control：max-age=120 
+Expires：Sun, 01 Jun 2008 12:37:47 GMT 
+Content-Type：application/xml  
+Age：2 
+X-Cache：HIT from 236-41、D07071951、sina、com、cn &lt;-- 反向代理服务器使用的 HTTP 头部 
+Via：1.0 236-41.D07071951.sina.com.cn:80 (squid/2.6.STABLE13) 
+Connection：close 
+```
