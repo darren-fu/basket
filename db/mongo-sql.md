@@ -1,5 +1,5 @@
 左边是mongodb查询语句，右边是sql语句。对照着用，挺方便。  
-```sql 
+```sql
 
 db.users.find() select * from users  
 db.users.find({"age" : 27}) select * from users where age = 27  
