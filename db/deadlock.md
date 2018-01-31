@@ -1,3 +1,18 @@
+# 行锁
+InnoDB的行级锁定同样分为两种类型，共享锁和排他锁，而在锁定机制的实现过程中为了让行级锁定和表级锁定共存，InnoDB也同样使用了意向锁（表级锁定）的概念，也就有了意向共享锁和意向排他锁这两种。
+![锁关系](https://github.com/darren-fu/scrip-paper/blob/master/imgs/image.png)
+如果一个事务请求的锁模式与当前的锁兼容，InnoDB就将请求的锁授予该事务；反之，如果两者不兼容，该事务就要等待锁释放。
+- 意向锁是InnoDB自动加的，不需用户干预。
+- 对于UPDATE、DELETE和INSERT语句，InnoDB会自动给涉及数据集加排他锁（X)；
+- 对于普通SELECT语句，InnoDB不会加任何锁；事务可以通过以下语句显示给记录集加共享锁或排他锁。
+```sql
+共享锁(S)：SELECT * FROM table_name WHERE ... LOCK IN SHARE MODE
+排他锁(X)：SELECT * FROM table_name WHERE ... FOR UPDATE
+```
+> 用SELECT ... IN SHARE MODE获得共享锁，主要用在需要数据依存关系时来确认某行记录是否存在，并确保没有人对这个记录进行UPDATE或者DELETE操作。
+但是如果当前事务也需要对该记录进行更新操作，则很有可能造成死锁，对于锁定行记录后需要进行更新操作的应用，应该使用SELECT... FOR UPDATE方式获得排他锁。
+
+
 # 原因
 在InnoDB中，除单个SQL组成的事务外，锁是逐步获得的，当两个事务都需要获得对方持有的排他锁才能继续完成事务，这种循环锁等待就是典型的死锁。 
 
@@ -45,10 +60,9 @@ mysql> show status like 'InnoDB_row_lock%';
 - InnoDB_row_lock_time_avg：每次等待所花平均时间；
 - InnoDB_row_lock_time_max：从系统启动到现在等待最常的一次所花的时间；
 - InnoDB_row_lock_waits：系统启动后到现在总共等待的次数；
+
 对于这5个状态变量，比较重要的主要是InnoDB_row_lock_time_avg（等待平均时长），InnoDB_row_lock_waits（等待总次数）以及InnoDB_row_lock_time（等待总时长）这三项。
 尤其是当等待次数很高，而且每次等待时长也不小的时候，我们就需要分析系统中为什么会有如此多的等待，然后根据分析结果着手指定优化计划。
 
 
 
-
-> 
