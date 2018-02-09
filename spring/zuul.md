@@ -7,10 +7,10 @@ Zuul对路由跳转的配置是在application.yml文件中，定义了两种映�
 - 单实例url直连
 ```yaml
 zuul:
-	routes:
-		wap:
-			path: /wap/**
-			url: http://192.168.1.10:8081
+  routes:
+    wap:
+	path: /wap/**
+	url: http://192.168.1.10:8081
 ```
 - 多实例路由 
 
