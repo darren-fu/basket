@@ -1,11 +1,13 @@
 [Zuul技术分析](http://tech.lede.com/2017/05/16/rd/server/SpringCloudZuul/)
+ zuul中默认实现的filter,禁用指定的filter,自定义filter,zuul对动态语言的支持,全局异常处理,性能优化参考
+
 # zuul对路由的配置 
 Zuul对路由跳转的配置是在application.yml文件中，定义了两种映射方式：
 - url映射
 - serviceId映射
 ## url直接映射
 - 单实例url直连
-```yaml
+```
 zuul:
   routes:
     wap:
@@ -14,7 +16,7 @@ zuul:
 ```
 - 多实例路由 
 
-```yaml
+```
 zuul:
 	routes:
 		wap:
@@ -29,7 +31,7 @@ wap:
 ``` 
 
 - forward跳转到本地url
-```yaml 
+``` 
 zuul:
 	routes:
 		wap:
@@ -38,12 +40,12 @@ zuul:
 ``` 
 ## serviceId映射 
 默认serviceId，serviceId：activity，路由规则：/activity/101 -> /101
-```yaml
+```
 zuul:
 	routes:
 		activity: /activity/**
 ```
-```yaml
+```
 zuul:
 	routes:
 		activity:
@@ -56,13 +58,13 @@ zuul:
 
 默认情况下，Zuul在请求路由时，会过滤HTTP请求头信息中的一些敏感信息，默认的敏感头信息通过zuul.sensitiveHeaders定义，包括Cookie、Set-Cookie、Authorization。
 - 设置全局参数覆盖默认值
-```yaml
+```
 zuul:
 	sensitiveHeaders: # 使用空来覆盖默认值
 ```
 
 - 指定路由的参数配置 
-```yaml
+```
 zuul:
 	routes:
 		[route]:
