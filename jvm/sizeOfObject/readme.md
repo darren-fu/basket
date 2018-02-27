@@ -6,7 +6,7 @@
 
 运行前添加VM参数：-javaagent:./lib/SizeOf.jar 运行即可(将jar放在lib路径下)。
 
-
+### example
 ```java
     int size = 1_000_000;
     List<String> list = new ArrayList<>(size);
@@ -20,6 +20,7 @@
     System.out.println(SizeOf.humanReadable(SizeOf.deepSizeOf(list)));
 ``` 
 
+### result
 
 ```
 JAVAGENT: call premain instrumentation for class SizeOf
