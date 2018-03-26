@@ -2,7 +2,7 @@
 - 自动把数据切分到多个Redis节点中
 - 当一部分节点挂了或不可达，集群依然能继续工作
   - 所有master参与选举，半数以上master节点与故障节点通信超时将触发故障转移
-  - 任意master挂掉且该master没有slave节点，集群将进入fail状态。如果master有slave节点，但是有半数以上master挂掉，集群也将进入fail状态
+  - 任意master挂掉且该master没有slave节点，集群将进入fail状态(cluster-require-full-coverage -> yes)。如果master有slave节点，但是有半数以上master挂掉，集群也将进入fail状态
   - 当集群fail时，所有对集群的操作都不可用，会受到clusterdown the cluster is down的错误
 - 两个端口
   - 客户端端口（一般是6379）需要对所有客户端和集群节点开放，因为集群节点需要通过该端口转移数据。
