@@ -14,7 +14,7 @@
 ![node](https://raw.githubusercontent.com/darren-fu/scrip-paper/master/imgs/kubernetes-node-arch.png)
 
 ### 分层
-![node](https://raw.githubusercontent.com/darren-fu/scrip-paper/master/imgs/kubernetes-layer-arch.png)
+![node](https://raw.githubusercontent.com/darren-fu/scrip-paper/master/imgs/kubernetes-layers-arch.png)
 
 - 核心层：Kubernetes最核心的功能，对外提供API构建高层的应用，对内提供插件式应用执行环境
 - 应用层：部署（无状态应用、有状态应用、批处理任务、集群应用等）和路由（服务发现、DNS解析等）
