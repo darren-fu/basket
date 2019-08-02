@@ -1,3 +1,4 @@
+``` java
 // Primitive type
 int.class.getName();          // -> int
 int.class.getCanonicalName(); // -> int
@@ -30,3 +31,4 @@ Class<?> objectArrayClass = new Integer[0].getClass();
 objectArrayClass.getName();          // -> [Ljava.lang.Integer;
 objectArrayClass.getCanonicalName(); // -> java.lang.Integer[]
 objectArrayClass.getSimpleName();    // -> Integer[]
+```
